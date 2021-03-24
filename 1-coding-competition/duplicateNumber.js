@@ -6,33 +6,41 @@
  * ⭐⭐⭐⭐⭐ : Production :D
  */
 
+/**
+ * Rekomendasi : ⭐⭐⭐
+ * @param {Array} inputList
+ * @returns
+ */
 function hilangkanDuplikat(inputList) {
   //kode kamu di sini
-  const output = inputList;
-  inputList.reduce((a, b, i) => {
-    a === b ? (output[i] = 0) : output[i];
-    return b;
+  let duplikatList = [];
+  return inputList.map(angka => {
+    const output = duplikatList.includes(angka) ? 0 : angka;
+    duplikatList.push(angka);
+    return output;
   });
-  return output;
 }
 
-const caseA = hilangkanDuplikat([1, 1, 2, 2, 3, 4, 5]); // [ 1, 0, 2, 0, 3, 4, 5 ]
-const caseB = hilangkanDuplikat([1, 1, 1, 1, 1, 1, 1]); // [ 1, 0, 0, 0, 0, 0, 0 ]
-const caseC = hilangkanDuplikat([1, 2, 3, 4, 5, 6, 7]); // [ 1, 2, 3, 4, 5, 6, 7 ]
+const kasusA = hilangkanDuplikat([1, 1, 2, 2, 3, 4, 5]); // [ 1, 0, 2, 0, 3, 4, 5 ]
+const kasusB = hilangkanDuplikat([1, 1, 1, 1, 2, 1, 1]); // [ 1, 0, 0, 0, 0, 0, 0 ]
+const kasusC = hilangkanDuplikat([1, 2, 3, 4, 5, 6, 7]); // [ 1, 2, 3, 4, 5, 6, 7 ]
+const kasusD = hilangkanDuplikat([1, 1, 1, 1, 2, 1, 1]); // [ 1, 0, 0, 0, 2, 0, 0 ]
 
-console.log({ caseA, caseB, caseC });
+console.log({ kasusA, kasusB, kasusC, kasusD });
 
-// function hilangkanDuplikat2(inputList) {
-//   //kode kamu di sini
-//   const output = inputList;
-//   const a = inputList.reduce((a, b, i) => {
-//     console.log(a == b, i);
-//     a === b ? (output[i] = 0) : output[i];
-//     return b;
-//   });
-//   console.log(output);
+/**
+ * Rekomendasi : ⭐
+ * @param {Array} inputList
+ *
+ */
+const hilangkanDuplikat2 = inputList =>
+  inputList.reduce((a, b, i) => {
+    a === b ? (inputList[i] = 0) : inputList[i];
+    return b;
+  });
 
-//   return true;
-// }
+const kasusA2 = hilangkanDuplikat2([1, 1, 2, 2, 3, 4, 5]); // [ 1, 0, 2, 0, 3, 4, 5 ]
+const kasusB2 = hilangkanDuplikat2([1, 1, 1, 1, 1, 1, 1]); // [ 1, 0, 0, 0, 0, 0, 0 ]
+const kasusC2 = hilangkanDuplikat2([1, 2, 3, 4, 5, 6, 7]); // [ 1, 2, 3, 4, 5, 6, 7 ]
 
-// hilangkanDuplikat2([1, 1, 2, 2, 3, 4, 5]);
+console.log({ kasusA2, kasusB2, kasusC2 });
